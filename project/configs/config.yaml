@@ -1,0 +1,16 @@
+database:
+  dsn: "postgres://my_user_name:my_password@localhost:5432/my_db?sslmode=disable"
+  maxOpenConnections: 5
+  maxIdleConnections: 5
+  connectionMaxIdleTime: 5m
+  connectionMaxLifeTime: 5m
+
+service:
+  port: 8000
+  logPath: "logs/service.log"
+
+frontend:
+  port: 3000
+
+nats:
+  url: "nats://localhost:4222"
