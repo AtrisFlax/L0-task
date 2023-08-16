@@ -1,2 +1,3 @@
--- drop test table
-DROP TABLE test;
+drop index items_uuid_uindex;
+
+drop table items;

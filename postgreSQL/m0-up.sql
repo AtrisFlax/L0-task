@@ -1,11 +1,14 @@
--- create test table
-CREATE TABLE test(
-  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  name TEXT NOT NULL,
-  archived BOOLEAN NOT NULL DEFAULT FALSE
+create table if not exists task.items
+(
+    uuid    uuid  not null
+        constraint items_1_pkey
+            primary key,
+    payload jsonb not null
 );
 
--- add test data
-INSERT INTO test (name, archived)
-  VALUES ('test row 1', true),
-  ('test row 2', false);
+alter table task.items
+    owner to my_user_name;
+
+create unique index if not exists items_uuid_uindex
+    on task.items (uuid);
+
